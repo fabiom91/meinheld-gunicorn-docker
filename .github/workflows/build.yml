@@ -27,7 +27,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: fabiom91/meinheld-gunicorn-docker
+          images: fabiom1991/meinheld-gunicorn-docker
 
       - name: Build and push
         uses: docker/build-push-action@v2
