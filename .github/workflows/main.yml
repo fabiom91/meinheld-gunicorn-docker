@@ -5,7 +5,7 @@ name: CI
 on:
   push:
     branches:
-      - 'main'
+      - 'master'
 
 jobs:
   build:
@@ -19,8 +19,8 @@ jobs:
         name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -31,4 +31,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/meinheld-gunicorn-docker:latest
